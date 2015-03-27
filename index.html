@@ -3,7 +3,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0,
         maximum-scale=1.0, user-scalable=no">
-        <title>t.rex extracted</title>
+        <title>t.rex extracted with bot</title>
         <style>
             #offline-resources{
                 display: none;
@@ -24,6 +24,18 @@
               top: 0;
               width: 100vw;
               z-index: 1;
+            }
+            #options {
+              position: absolute;
+              top: 250px;
+              left: 50px;
+              display: flex;
+              align-items: center;
+            }
+            #botStatus {
+              width: 20px;
+              height: 20px;
+              margin-right: 10px;
             }
         </style>
     </head>
@@ -64,6 +76,10 @@
         <audio id="offline-sound-hit" src="assets/offline-sound-hit.mp3"></audio>
         <audio id="offline-sound-reached" src="assets/offline-sound-reached.mp3"></audio>
         </template> -->
+        <div id="options">
+          <input type="checkbox" id="botStatus" /> Activate Bot?
+        </div>
         <script src="scripts/runner.js"></script>
+        <script src="scripts/bot.js"></script>
     </body>
 </html>
