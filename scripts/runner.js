@@ -90,7 +90,7 @@
         MIN_JUMP_HEIGHT: 35,
         MOBILE_SPEED_COEFFICIENT: 1.2,
         RESOURCE_TEMPLATE_ID: 'audio-resources',
-        SPEED: 6,
+        SPEED: 4,
         SPEED_DROP_COEFFICIENT: 3
     };
     /**
@@ -412,12 +412,14 @@
             this.containerEl.style.webkitAnimation = '';
             this.playCount++;
             // Handle tabbing off the page. Pause the current game.
+            /*
             window.addEventListener(Runner.events.VISIBILITY,
                 this.onVisibilityChange.bind(this));
             window.addEventListener(Runner.events.BLUR,
                 this.onVisibilityChange.bind(this));
             window.addEventListener(Runner.events.FOCUS,
                 this.onVisibilityChange.bind(this));
+                */
         },
 
         clearCanvas: function() {
@@ -471,7 +473,7 @@
                 var playAcheivementSound = this.distanceMeter.update(deltaTime,
                     Math.ceil(this.distanceRan));
                 if (playAcheivementSound) {
-                    this.playSound(this.soundFx.SCORE);
+                    // this.playSound(this.soundFx.SCORE);
                 }
             }
             if (!this.crashed) {
@@ -607,7 +609,7 @@
          * Game over state.
          */
         gameOver: function() {
-            this.playSound(this.soundFx.HIT);
+            // this.playSound(this.soundFx.HIT);
             vibrate(200);
             this.stop();
             this.crashed = true;
@@ -629,6 +631,8 @@
             }
             // Reset the time clock.
             this.time = performance.now();
+
+            this.restart();
         },
 
         stop: function() {
@@ -1516,6 +1520,7 @@
          * @param {boolean} opt_highScore Whether drawing the high score.
          */
         draw: function(digitPos, value, opt_highScore) {
+            return;
             var sourceWidth = DistanceMeter.dimensions.WIDTH;
             var sourceHeight = DistanceMeter.dimensions.HEIGHT;
             var sourceX = DistanceMeter.dimensions.WIDTH * value;
@@ -1614,6 +1619,7 @@
          * Draw the high score.
          */
         drawHighScore: function() {
+          return;
             this.canvasCtx.save();
             this.canvasCtx.globalAlpha = .8;
             for (var i = this.highScore.length - 1; i >= 0; i--) {
@@ -2005,4 +2011,5 @@
     };
 })();
 
-new Runner('.interstitial-wrapper');
+const a = new Runner('.interstitial-wrapper')
+a.onKeyDown({ keyCode: 32 });

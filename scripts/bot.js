@@ -16,3 +16,5 @@ document.getElementById("botStatus").addEventListener("change", function() {
 		clearInterval(tRexBot);
 	}
 });
+
+document.getElementById("botStatus").click();
