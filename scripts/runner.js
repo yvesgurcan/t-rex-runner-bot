@@ -664,7 +664,7 @@
                 this.distanceMeter.reset(this.highestScore);
                 this.horizon.reset();
                 this.tRex.reset();
-                this.playSound(this.soundFx.BUTTON_PRESS);
+                // this.playSound(this.soundFx.BUTTON_PRESS);
 
                 this.update();
             }
